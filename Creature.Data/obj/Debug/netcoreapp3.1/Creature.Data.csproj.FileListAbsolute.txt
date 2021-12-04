@@ -1,0 +1,9 @@
+C:\Users\imari\Documents\GitHub\Creature\Creature.Data\bin\Debug\netcoreapp3.1\Creature.Data.deps.json
+C:\Users\imari\Documents\GitHub\Creature\Creature.Data\bin\Debug\netcoreapp3.1\Creature.Data.dll
+C:\Users\imari\Documents\GitHub\Creature\Creature.Data\bin\Debug\netcoreapp3.1\Creature.Data.pdb
+C:\Users\imari\Documents\GitHub\Creature\Creature.Data\obj\Debug\netcoreapp3.1\Creature.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\imari\Documents\GitHub\Creature\Creature.Data\obj\Debug\netcoreapp3.1\Creature.Data.AssemblyInfoInputs.cache
+C:\Users\imari\Documents\GitHub\Creature\Creature.Data\obj\Debug\netcoreapp3.1\Creature.Data.AssemblyInfo.cs
+C:\Users\imari\Documents\GitHub\Creature\Creature.Data\obj\Debug\netcoreapp3.1\Creature.Data.csproj.CoreCompileInputs.cache
+C:\Users\imari\Documents\GitHub\Creature\Creature.Data\obj\Debug\netcoreapp3.1\Creature.Data.dll
+C:\Users\imari\Documents\GitHub\Creature\Creature.Data\obj\Debug\netcoreapp3.1\Creature.Data.pdb
