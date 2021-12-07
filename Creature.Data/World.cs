@@ -1,27 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace Creature.Data
 {
     public class World
     {
+        [JsonConstructor]
         public World()
         {
             CreatureIndex = new List<Creature>();
             _creatureNameIndex = new Dictionary<string, Creature>();
-
-            ItemIndex = new List<Item>();
-            _itemNameIndex = new Dictionary<string, Item>();
         }
 
         public List<Creature> CreatureIndex { get; set; }
 
-        public List<Item> ItemIndex { get; set; }
-
         public Creature Opponent { get; set; }
 
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext context)
+        {
+            _creatureNameIndex = CreatureIndex.ToDictionary(creature => creature.Name, creature => creature);
+        }
+
         private Dictionary<string, Creature> _creatureNameIndex;
-        private Dictionary<string, Item> _itemNameIndex;
     }
 }

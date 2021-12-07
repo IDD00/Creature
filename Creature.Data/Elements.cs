@@ -2,6 +2,7 @@
 {
     public enum Elements
     {
+        Unknown,
         Neutral,
         Fire,
         Water,

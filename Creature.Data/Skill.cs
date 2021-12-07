@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace Creature.Data
 {
@@ -8,32 +9,25 @@ namespace Creature.Data
     {
         public Skill(string name)
         {
-            SkillName = name;
+            Name = name;
             Element = Elements.Neutral;
             Power = 10;
-            Guard = 0;
-            Heal = 0;
         }
-
-        public Skill(string name, Elements element, int power, int guard, int heal)
+        [JsonConstructor]
+        public Skill(string name, Elements element, int power)
         {
-            SkillName = name;
+            Name = name;
             Element = element;
             Power = power;
-            Guard = guard;
-            Heal = heal;
         }
 
-        public string SkillName { get; set; }
-
-        public Elements Element;
-
+        [JsonProperty(Order = 1)]
+        public string Name { get; set; }
+        [JsonProperty(Order = 2)]
+        public Elements Element { get; set; }
+        [JsonProperty(Order = 3)]
         public int Power { get; set; }
 
-        public int Guard { get; set; }
-
-        public int Heal { get; set; }
-
-        public override string ToString() => SkillName;
+        public override string ToString() => Name;
     }
 }

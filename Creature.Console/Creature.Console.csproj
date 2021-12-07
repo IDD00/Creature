@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Creature.Data\Creature.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Test.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

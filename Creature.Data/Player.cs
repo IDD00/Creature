@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace Creature.Data
 {
@@ -9,21 +11,18 @@ namespace Creature.Data
         public Player()
         {
             PlayerName = "Player";
-            PlayerTeam = new List<Creature>();
-            Inventory = new List<Item>();
+            Team = new List<Creature>();
 
             Wins = 0;
-            Money = 500;
         }
 
+        [JsonIgnore]
         public string PlayerName { get; set; }
-
-        public List<Creature> PlayerTeam { get; set; }
-
-        public List<Item> Inventory { get; set; }
-
-        public int Money { get; set; }
-
+        [JsonIgnore]
+        public List<Creature> Team { get; set; }
+        [JsonProperty(PropertyName = "Team", Order = 1)]
+        public List<string> TeamNames { get; set; } = new List<string>();
+        [JsonIgnore]
         public int Wins { get; set; }
 
         public override string ToString() => PlayerName;

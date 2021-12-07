@@ -1,40 +1,45 @@
 {
   "World": {
-    "CreatureIndex": {
+    "CreatureIndex": [
       {
         "Name": "Bat",
-        "Health": 50,
-        "Shield": 0,
-        "Weakness": {
-          "Elements": "Fire"
-        },
-        "Resistance": {
-          "Elements": "Wind"
-        },
-        "SkillSet": {
-          "SkillName": "Bite",
-          "Element": "Neutral",
-          "Power": "40",
-          "Guard": "0",
-          "Heal": "20"
-        }
-      }
-    },
-    "ItemIndex": {
+        "Health": 100,
+        "Weakness": "Fire",
+        "Resistance": "Wind",
+        "SkillSet": [
+          {
+            "Name": "Bite",
+            "Element": "Neutral",
+            "Power": 50
+          }
+        ]
+      },
       {
-        "ItemName": "Potion",
-        "Quantity": "5",
-        "Price": 100
+        "Name": "Snake",
+        "Health": 100,
+        "Weakness": "Water",
+        "Resistance": "Fire",
+        "SkillSet": [
+          {
+            "Name": "Poison Fang",
+            "Element": "Earth",
+            "Power": 60
+          },
+          {
+            "Name": "Constrict",
+            "Element": "Neutral",
+            "Power": 40
+          }
+        ]
       }
-    }
+    ]
   },
   "Player": {
-    "PlayerTeam": {
-      "Monster": "Bat"
-    },
-    "Inventory": {
-      "Item": "Potion"
-    },
-    "Money": 1000
-  }
+    "Team": [
+      "Snake",
+      "Bat"
+    ]
+  },
+  "StartMessage": "Welcome to this Creature Battle Simulator!",
+  "ExitMessage": "Thank you for playing!"
 }
