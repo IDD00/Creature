@@ -1,0 +1,40 @@
+{
+  "World": {
+    "CreatureIndex": {
+      {
+        "Name": "Bat",
+        "Health": 50,
+        "Shield": 0,
+        "Weakness": {
+          "Elements": "Fire"
+        },
+        "Resistance": {
+          "Elements": "Wind"
+        },
+        "SkillSet": {
+          "SkillName": "Bite",
+          "Element": "Neutral",
+          "Power": "40",
+          "Guard": "0",
+          "Heal": "20"
+        }
+      }
+    },
+    "ItemIndex": {
+      {
+        "ItemName": "Potion",
+        "Quantity": "5",
+        "Price": 100
+      }
+    }
+  },
+  "Player": {
+    "PlayerTeam": {
+      "Monster": "Bat"
+    },
+    "Inventory": {
+      "Item": "Potion"
+    },
+    "Money": 1000
+  }
+}
