@@ -2,33 +2,128 @@
   "World": {
     "CreatureIndex": [
       {
-        "Name": "Bat",
-        "Health": 100,
-        "Weakness": "Fire",
-        "Resistance": "Wind",
+        "Name": "Goblin",
+        "Health": 150,
+        "Weakness": "Light",
+        "Resistance": "Shadow",
+        "Description": "[Insert Creature Description]",
         "SkillSet": [
           {
-            "Name": "Bite",
+            "Name": "Bash",
             "Element": "Neutral",
-            "Power": 50
+            "Power": 50,
+            "Description": "[Insert Move Description]"
+          },
+          {
+            "Name": "Shadow Strike",
+            "Element": "Shadow",
+            "Power": 50,
+            "Description": "[Insert Move Description]"
           }
         ]
       },
       {
-        "Name": "Snake",
-        "Health": 100,
+        "Name": "Kobold",
+        "Health": 150,
         "Weakness": "Water",
         "Resistance": "Fire",
+        "Description": "[Insert Creature Description]",
         "SkillSet": [
           {
-            "Name": "Poison Fang",
-            "Element": "Earth",
-            "Power": 60
+            "Name": "Scratch",
+            "Element": "Neutral",
+            "Power": 40,
+            "Description": "[Insert Move Description]"
           },
           {
-            "Name": "Constrict",
+            "Name": "Fire Breath",
+            "Element": "Fire",
+            "Power": 60,
+            "Description": "[Insert Move Description]"
+          }
+        ]
+      },
+      {
+        "Name": "Dragon",
+        "Health": 240,
+        "Weakness": "Earth",
+        "Resistance": "Fire",
+        "Description": "[Insert Creature Description]",
+        "SkillSet": [
+          {
+            "Name": "Slash",
             "Element": "Neutral",
-            "Power": 40
+            "Power": 60,
+            "Description": "[Insert Move Description]"
+          },
+          {
+            "Name": "Fire Breath",
+            "Element": "Fire",
+            "Power": 80,
+            "Description": "[Insert Move Description]"
+          }
+        ]
+      },
+      {
+        "Name": "Golem",
+        "Health": 300,
+        "Weakness": "Water",
+        "Resistance": "Neutral",
+        "Description": "[Insert Creature Description]",
+        "SkillSet": [
+          {
+            "Name": "Crush",
+            "Element": "Neutral",
+            "Power": 50,
+            "Description": "[Insert Move Description]"
+          },
+          {
+            "Name": "Rock Throw",
+            "Element": "Earth",
+            "Power": 60,
+            "Description": "[Insert Move Description]"
+          }
+        ]
+      },
+      {
+        "Name": "Fairy",
+        "Health": 100,
+        "Weakness": "Metal",
+        "Resistance": "Light",
+        "Description": "[Insert Creature Description]",
+        "SkillSet": [
+          {
+            "Name": "Glimmer",
+            "Element": "Light",
+            "Power": 40,
+            "Description": "[Insert Move Description]"
+          },
+          {
+            "Name": "Metal Dust",
+            "Element": "Metal",
+            "Power": 60,
+            "Description": "[Insert Move Description]"
+          }
+        ]
+      },
+      {
+        "Name": "Yeti",
+        "Health": 250,
+        "Weakness": "Fire",
+        "Resistance": "Water",
+        "Description": "[Insert Creature Description]",
+        "SkillSet": [
+          {
+            "Name": "Bash",
+            "Element": "Neutral",
+            "Power": 50,
+            "Description": "[Insert Move Description]"
+          },
+          {
+            "Name": "Snowfall",
+            "Element": "Water",
+            "Power": 60,
+            "Description": "[Insert Move Description]"
           }
         ]
       }
@@ -36,8 +131,9 @@
   },
   "Player": {
     "Team": [
-      "Snake",
-      "Bat"
+      "Goblin",
+      "Kobold",
+      "Yeti"
     ]
   },
   "StartMessage": "Welcome to this Creature Battle Simulator!",

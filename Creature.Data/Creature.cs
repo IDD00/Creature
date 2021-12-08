@@ -14,19 +14,20 @@ namespace Creature.Data
 
             Weakness = Elements.Unknown;
             Resistance = Elements.Unknown;
+            Description = "[Insert Creature Description]";
 
             SkillSet = new List<Skill>();
-            Skill basicSkill = new Skill("Bash");
+            Skill basicSkill = new Skill("Attack");
             SkillSet.Add(basicSkill);
         }
         [JsonConstructor]
-        public Creature(string name, int health, Elements weak, Elements resist)
+        public Creature(string name, int health, Elements weak, Elements resist, string description)
         {
             Name = name;
             MaxHealth = Health = health;
-
             Weakness = weak;
             Resistance = resist;
+            Description = description;
 
             SkillSet = new List<Skill>();
         }
@@ -42,6 +43,8 @@ namespace Creature.Data
         [JsonProperty(Order = 4)]
         public Elements Resistance { get; set; }
         [JsonProperty(Order = 5)]
+        public string Description { get; set; }
+        [JsonProperty(Order = 6)]
         public List<Skill> SkillSet { get; set; }
 
         public override string ToString() => Name;

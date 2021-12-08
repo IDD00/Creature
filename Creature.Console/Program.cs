@@ -14,6 +14,15 @@ namespace Creature
 
             Game game = Game.Load();
             game = JsonConvert.DeserializeObject<Game>(File.ReadAllText(gameFilename));
+
+            Console.Write("Please enter a name: ");
+            string name = Console.ReadLine().Trim();
+
+            if (name != null)
+            {
+                game.Player.PlayerName = name;
+            }
+
             game.Run();
         }
 

@@ -17,6 +17,8 @@ namespace Creature.Data
             Commands = new Dictionary<string, Command>()
             {
                 { "DATA", new Command("DATA", new string[] { "DATA", "INFORMATION", "INFO" }, Data) },
+                { "BATTLE", new Command("BATTLE", new string[] { "BATTLE", "FIGHT", "COMBAT" }, Battle) },
+                { "TEAM", new Command("TEAM", new string[] { "TEAM", "PARTY", "GROUP" }, Team) },
                 { "QUIT", new Command("QUIT", new string[] { "QUIT", "Q", "STOP", "END" }, Quit) },
             };
         }
@@ -47,7 +49,14 @@ namespace Creature.Data
             IsGameRunning = true;
             while (IsGameRunning)
             {
-                Console.Write("\n> ");
+                if (IsInBattle)
+                {
+                    Console.WriteLine($"{Player.PlayerName}'s {World.Member.Name}: {World.Member.Health}/{World.Member.MaxHealth}");
+                    Console.WriteLine("\tVS");
+                    Console.WriteLine($"Enemy {World.Opponent.Name}: {World.Opponent.Health}/{World.Opponent.MaxHealth}");
+                }
+
+                Console.Write($"\nWhat will {Player.PlayerName} do?: ");
                 string commandString = Console.ReadLine().Trim().ToUpper();
                 Command foundCommand = null;
                 foreach (Command command in Commands.Values)
@@ -74,26 +83,131 @@ namespace Creature.Data
 
         public static void Data(Game game)
         {
-            int index = 1;
+            int index = 0;
             foreach (Creature creature in game.World.CreatureIndex)
             {
-                Console.WriteLine($"Index #{index}");
-                Console.WriteLine($"Species: {creature.Name}\nLife: {creature.Health}/{creature.MaxHealth}");
-                Console.WriteLine($"Weakness: {creature.Weakness}\tResistance: {creature.Resistance}\n---Skills---");
-                int count = 1;
-                foreach (Skill skill in creature.SkillSet)
-                {
-                    Console.WriteLine($"{count}. Name: {skill.Name}\tElement: {skill.Element}\tPower: {skill.Power}");
-                    count++;
-                }
-                Console.WriteLine();
                 index++;
+                Console.WriteLine($"{index}. {creature.Name}");
+                Console.WriteLine($"{creature.Health}/{creature.MaxHealth}");
+            }
+        }
+
+        public static void Team(Game game)
+        {
+            int index = 0;
+            foreach (Creature creature in game.Player.Team)
+            {
+                index++;
+                Console.WriteLine($"{index}. {creature.Name}");
+                Console.WriteLine($"{creature.Health}/{creature.MaxHealth}");
+            }
+        }
+
+        public static void Battle(Game game)
+        {
+            if (!game.IsInBattle)
+            {
+                Console.WriteLine("Enter battle?");
+                string choiceString = "";
+                while (choiceString != "YES" && choiceString != "Y" && choiceString != "NO" && choiceString != "N")
+                {
+                    Console.Write("Please enter Yes/No (Y/N): ");
+                    choiceString = Console.ReadLine().Trim().ToUpper();
+                }
+
+                if (choiceString == "NO" && choiceString == "N")
+                {
+                    return;
+                }
+                else
+                {
+                    game.IsInBattle = true;
+                    game.World.SpawnOpponent();
+                    Console.WriteLine($"Enemy {game.World.Opponent.Name} appeared!");
+                    game.World.ChooseMember(game.Player);
+                }
+            }
+            else
+            {
+                game.PlayerTurn(game);
+                game.EnemyTurn(game);
             }
         }
 
         public static void Quit(Game game)
         {
             game.IsGameRunning = false;
+        }
+
+        public void PlayerTurn(Game game)
+        {
+            Console.WriteLine($"What will {game.Player.PlayerName}'s {game.World.Member.Name} do?");
+
+            int searchIndex = 0;
+
+            while (searchIndex < 1 || searchIndex > game.World.Member.SkillSet.Count)
+            {
+                int index = 0;
+                foreach (Skill skill in game.World.Member.SkillSet)
+                {
+                    index++;
+                    Console.WriteLine($"{index}. {skill.Name}");
+                }
+
+                Console.WriteLine("Enter Skill Number: ");
+                string searchString = Console.ReadLine();
+
+                bool success = int.TryParse(searchString, out int number);
+                if (!success)
+                {
+                    searchIndex = 0;
+                }
+                else
+                {
+                    searchIndex = number;
+                }
+            }
+
+            Skill playerSkill = game.World.Member.SkillSet[searchIndex - 1];
+            Console.WriteLine($"{game.Player.PlayerName}'s {game.World.Member.Name} used {playerSkill.Name}!");
+            UseSkill(playerSkill, game.World.Opponent);
+        }
+
+        public void EnemyTurn(Game game)
+        {
+            Random random = new Random();
+            int index = random.Next(game.World.Opponent.SkillSet.Count);
+
+            Skill enemySkill = game.World.Opponent.SkillSet[index];
+            Console.WriteLine($"Enemy {game.World.Opponent.Name} used {enemySkill.Name}!");
+            UseSkill(enemySkill, game.World.Member);
+        }
+
+        public void UseSkill(Skill skill, Creature creature)
+        {
+            int damage;
+
+            if (skill.Power > 0)
+            {
+                if (skill.Element == creature.Weakness && skill.Element != creature.Resistance)
+                {
+                    damage = skill.Power * 2;
+                    creature.Health -= damage;
+                    Console.WriteLine($"{creature.Name} took {damage} damage due to {skill.Element} Weakness!\n");
+                }
+                else if (skill.Element == creature.Resistance && skill.Element != creature.Weakness)
+                {
+                    damage = skill.Power / 2;
+                    creature.Health -= damage;
+                    Console.WriteLine($"{creature.Name} took {damage} damage due to {skill.Element} Resistance!\n");
+                }
+                else
+                {
+                    damage = skill.Power;
+                    creature.Health -= damage;
+                    Console.WriteLine($"{creature.Name} took {damage} damage!\n");
+                }
+            }
         }
 
         [OnDeserialized]
@@ -105,7 +219,9 @@ namespace Creature.Data
                 {
                     if (name == creature.Name)
                     {
-                        Player.Team.Add(creature);
+                        Creature playerCreature = new Creature(creature.Name, creature.MaxHealth, creature.Weakness, creature.Resistance, creature.Description);
+                        playerCreature.SkillSet = creature.SkillSet;
+                        Player.Team.Add(playerCreature);
                         break;
                     }
                 }

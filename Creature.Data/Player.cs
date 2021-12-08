@@ -14,6 +14,7 @@ namespace Creature.Data
             Team = new List<Creature>();
 
             Wins = 0;
+            Turns = 0;
         }
 
         [JsonIgnore]
@@ -24,6 +25,8 @@ namespace Creature.Data
         public List<string> TeamNames { get; set; } = new List<string>();
         [JsonIgnore]
         public int Wins { get; set; }
+        [JsonIgnore]
+        public int Turns { get; set; }
 
         public override string ToString() => PlayerName;
     }

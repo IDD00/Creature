@@ -8,7 +8,8 @@
         Water,
         Earth,
         Wind,
-        Darkness,
-        Light
+        Metal,
+        Light,
+        Shadow
     }
 }
