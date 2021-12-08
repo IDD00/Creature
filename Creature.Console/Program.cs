@@ -3,7 +3,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Creature.Data;
 
-namespace Creature
+namespace Creature.Comsole
 {
     class Program
     {

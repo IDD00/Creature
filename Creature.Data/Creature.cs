@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using Newtonsoft.Json;
 
 namespace Creature.Data
 {
-    public class Creature
+    public class Creature : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public Creature(string name)
         {
             Name = name;
