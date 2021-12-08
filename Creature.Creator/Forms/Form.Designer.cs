@@ -1,7 +1,7 @@
 ﻿
 namespace Creature.Builder
 {
-    partial class MainForm
+    partial class Form
     {
         /// <summary>
         ///  Required designer variable.

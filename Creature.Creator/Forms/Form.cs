@@ -14,7 +14,7 @@ using System.IO;
 
 namespace Creature.Builder
 {
-    public partial class MainForm : Form
+    public partial class Form : System.Windows.Forms.Form
     {
         private GameViewModel ViewModel
         {
@@ -37,7 +37,7 @@ namespace Creature.Builder
             }
         }
 
-        public MainForm()
+        public Form()
         {
             InitializeComponent();
             ViewModel = new GameViewModel();
