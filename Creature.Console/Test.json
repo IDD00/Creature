@@ -131,8 +131,8 @@
   },
   "Player": {
     "Team": [
-      "Goblin",
       "Kobold",
+      "Golem",
       "Yeti"
     ]
   },

@@ -46,6 +46,10 @@ namespace Creature.Data
         public string Description { get; set; }
         [JsonProperty(Order = 6)]
         public List<Skill> SkillSet { get; set; }
+        [JsonIgnore]
+        public int Charge { get; set; }
+        [JsonIgnore]
+        public int Armor { get; set; }
 
         public override string ToString() => Name;
     }

@@ -31,6 +31,9 @@ namespace Creature.Data
         public int Power { get; set; }
         [JsonProperty(Order = 4)]
         public string Description { get; set; }
+        public int Boost { get; set; }
+        public int Shield { get; set; }
+        public int Heal { get; set; }
 
         public override string ToString() => Name;
     }

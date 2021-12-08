@@ -8,6 +8,7 @@
         Water,
         Earth,
         Wind,
+        Electric,
         Metal,
         Light,
         Shadow
