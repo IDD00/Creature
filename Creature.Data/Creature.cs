@@ -13,7 +13,8 @@ namespace Creature.Data
         public Creature(string name)
         {
             Name = name;
-            MaxHealth = Health = 100;
+            MaxHealth = 100;
+            Health = MaxHealth;
 
             Weakness = Elements.Unknown;
             Resistance = Elements.Unknown;
@@ -27,7 +28,8 @@ namespace Creature.Data
         public Creature(string name, int health, Elements weak, Elements resist, string description)
         {
             Name = name;
-            MaxHealth = Health = health;
+            MaxHealth = health;
+            Health = MaxHealth;
             Weakness = weak;
             Resistance = resist;
             Description = description;

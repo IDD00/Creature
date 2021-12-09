@@ -25,6 +25,7 @@ namespace Creature.Builder.ViewModels
         }
 
         public BindingList<Data.Creature> Creatures { get; set; }
+        public BindingList<Data.Creature> PlayerTeam { get; set; }
 
         public Game Game
         {
@@ -38,10 +39,12 @@ namespace Creature.Builder.ViewModels
                     if (_game != null)
                     {
                         Creatures = new BindingList<Data.Creature>(_game.World.CreatureIndex);
+                        PlayerTeam = new BindingList<Data.Creature>(_game.Player.Team);
                     }
                     else
                     {
                         Creatures = new BindingList<Data.Creature>(Array.Empty<Data.Creature>());
+                        PlayerTeam = new BindingList<Data.Creature>(Array.Empty<Data.Creature>());
                     }
                 }
             }

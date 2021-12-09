@@ -87,7 +87,7 @@
       },
       {
         "Name": "Fairy",
-        "Health": 100,
+        "Health": 110,
         "Weakness": "Metal",
         "Resistance": "Light",
         "Description": "[Insert Creature Description]",
