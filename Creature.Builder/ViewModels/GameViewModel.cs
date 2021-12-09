@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Creature.Data;
 
 namespace Creature.Builder.ViewModels
 {
-    public class GameViewModel : INotifyPropertyChanged
+    class GameViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -26,7 +28,7 @@ namespace Creature.Builder.ViewModels
 
         public Game Game
         {
-            get => _game; 
+            get => _game;
             set
             {
                 if (_game != value)
