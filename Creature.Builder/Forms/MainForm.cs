@@ -36,6 +36,10 @@ namespace Creature.Builder
             set
             {
                 _isGameLoaded = value;
+                mainFormTabControl.Enabled = _isGameLoaded;
+                closeToolStripMenuItem.Enabled = _isGameLoaded;
+                saveToolStripMenuItem.Enabled = _isGameLoaded;
+                saveAsToolStripMenuItem.Enabled = _isGameLoaded;
             }
         }
 
@@ -65,7 +69,12 @@ namespace Creature.Builder
 
         private void NewToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            World _world = new World();
+            Player _player = new Player();
 
+            ViewModel.Game = new Game(_world, _player);
+
+            IsGameLoaded = true;
         }
 
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -81,7 +90,8 @@ namespace Creature.Builder
 
         private void CloseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ViewModel.Game = null;
+            IsGameLoaded = false;
         }
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
