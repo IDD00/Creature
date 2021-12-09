@@ -44,6 +44,23 @@ namespace Creature.Builder
             InitializeComponent();
             ViewModel = new GameViewModel();
             IsGameLoaded = false;
+
+            _comboBoxes = new List<ComboBox>
+            {
+                { skillElementComboBox },
+                { creatureWeaknessComboBox },
+                { creatureResistanceComboBox }
+            };
+
+            foreach (ComboBox comboBox in _comboBoxes)
+            {
+                var elements = new List<string>();
+                foreach (string element in Enum.GetNames(typeof(Elements)))
+                {
+                    elements.Add(element);
+                }
+                comboBox.DataSource = elements;
+            }
         }
 
         private void NewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -69,12 +86,23 @@ namespace Creature.Builder
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (ViewModel.Filename != null)
+            {
+                SaveGame();
+            }
+            else
+            {
+                saveAsToolStripMenuItem.PerformClick();
+            }
         }
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ViewModel.Filename = saveFileDialog.FileName;
+                SaveGame();
+            }
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -146,7 +174,33 @@ namespace Creature.Builder
             }
         }
 
+        private void SaveGame()
+        {
+
+            if (string.IsNullOrEmpty(ViewModel.Filename))
+            {
+                throw new InvalidProgramException("Filename expected.");
+            }
+
+            JsonSerializer serializer = new JsonSerializer
+            {
+                Formatting = Formatting.Indented
+            };
+            using (StreamWriter streamWriter = new StreamWriter(ViewModel.Filename))
+            using (JsonWriter jsonWriter = new JsonTextWriter(streamWriter))
+            {
+                serializer.Serialize(jsonWriter, ViewModel.Game);
+            }
+        }
+
         private GameViewModel _viewModel;
         private bool _isGameLoaded;
+
+        private readonly List<ComboBox> _comboBoxes;
+
+        private void CreatureIndexListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            deleteCreatureButton.Enabled = creatureIndexListBox.SelectedItem != null;
+        }
     }
 }

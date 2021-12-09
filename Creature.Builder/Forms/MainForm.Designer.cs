@@ -94,6 +94,7 @@ namespace Creature.Builder
             this.startMessageLabel = new System.Windows.Forms.Label();
             this.startMessageTextBox = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.mainFormMenuStrip.SuspendLayout();
             this.mainFormTabControl.SuspendLayout();
             this.creaturesTabPage.SuspendLayout();
@@ -610,6 +611,7 @@ namespace Creature.Builder
             this.creatureIndexListBox.Name = "creatureIndexListBox";
             this.creatureIndexListBox.Size = new System.Drawing.Size(150, 386);
             this.creatureIndexListBox.TabIndex = 1;
+            this.creatureIndexListBox.SelectedIndexChanged += new System.EventHandler(this.CreatureIndexListBox_SelectedIndexChanged);
             // 
             // gameTabPage
             // 
@@ -763,6 +765,10 @@ namespace Creature.Builder
             this.openFileDialog.FileName = "openFileDialog1";
             this.openFileDialog.Filter = "Game Files (*.json)|*.json";
             // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "Game Files (*.json)|*.json";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -869,6 +875,7 @@ namespace Creature.Builder
         private System.Windows.Forms.BindingSource creaturesBindingSource;
         private System.Windows.Forms.BindingSource skillsBindingSource;
         private System.Windows.Forms.BindingSource playerTeamBindingSource;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 
