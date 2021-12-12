@@ -9,7 +9,7 @@ namespace Creature.Comsole
     {
         static void Main(string[] args)
         {
-            const string defaultGameFilename = "Test.json";
+            const string defaultGameFilename = "Sample.json";
             string gameFilename = (args.Length > 0 ? args[(int)CommandLineArguments.GameFilename] : defaultGameFilename);
 
             Game game = Game.Load();

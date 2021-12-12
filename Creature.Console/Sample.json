@@ -1,0 +1,195 @@
+{
+  "World": {
+    "CreatureIndex": [
+      {
+        "Name": "Goblin",
+        "Health": 150,
+        "Weakness": 8,
+        "Resistance": 9,
+        "Description": "[Insert Creature Description]",
+        "SkillSet": [
+          {
+            "Boost": 0,
+            "Shield": 0,
+            "Heal": 0,
+            "Name": "Bash",
+            "Element": 1,
+            "Power": 50,
+            "Description": "[Insert Move Description]"
+          },
+          {
+            "Boost": 0,
+            "Shield": 0,
+            "Heal": 0,
+            "Name": "Shadow Strike",
+            "Element": 9,
+            "Power": 50,
+            "Description": "[Insert Move Description]"
+          }
+        ]
+      },
+      {
+        "Name": "Kobold",
+        "Health": 150,
+        "Weakness": 3,
+        "Resistance": 2,
+        "Description": "[Insert Creature Description]",
+        "SkillSet": [
+          {
+            "Boost": 0,
+            "Shield": 0,
+            "Heal": 0,
+            "Name": "Scratch",
+            "Element": 1,
+            "Power": 40,
+            "Description": "[Insert Move Description]"
+          },
+          {
+            "Boost": 0,
+            "Shield": 0,
+            "Heal": 0,
+            "Name": "Fire Breath",
+            "Element": 2,
+            "Power": 60,
+            "Description": "[Insert Move Description]"
+          }
+        ]
+      },
+      {
+        "Name": "Dragon",
+        "Health": 240,
+        "Weakness": 4,
+        "Resistance": 2,
+        "Description": "[Insert Creature Description]",
+        "SkillSet": [
+          {
+            "Boost": 0,
+            "Shield": 0,
+            "Heal": 0,
+            "Name": "Slash",
+            "Element": 1,
+            "Power": 60,
+            "Description": "[Insert Move Description]"
+          },
+          {
+            "Boost": 0,
+            "Shield": 0,
+            "Heal": 0,
+            "Name": "Fire Breath",
+            "Element": 2,
+            "Power": 80,
+            "Description": "[Insert Move Description]"
+          }
+        ]
+      },
+      {
+        "Name": "Golem",
+        "Health": 300,
+        "Weakness": 3,
+        "Resistance": 1,
+        "Description": "[Insert Creature Description]",
+        "SkillSet": [
+          {
+            "Boost": 0,
+            "Shield": 0,
+            "Heal": 0,
+            "Name": "Crush",
+            "Element": 1,
+            "Power": 50,
+            "Description": "[Insert Move Description]"
+          },
+          {
+            "Boost": 0,
+            "Shield": 0,
+            "Heal": 0,
+            "Name": "Rock Throw",
+            "Element": 4,
+            "Power": 60,
+            "Description": "[Insert Move Description]"
+          }
+        ]
+      },
+      {
+        "Name": "Fairy",
+        "Health": 110,
+        "Weakness": 7,
+        "Resistance": 8,
+        "Description": "[Insert Creature Description]",
+        "SkillSet": [
+          {
+            "Boost": 0,
+            "Shield": 0,
+            "Heal": 0,
+            "Name": "Glimmer",
+            "Element": 8,
+            "Power": 40,
+            "Description": "[Insert Move Description]"
+          },
+          {
+            "Boost": 0,
+            "Shield": 0,
+            "Heal": 0,
+            "Name": "Metal Dust",
+            "Element": 7,
+            "Power": 60,
+            "Description": "[Insert Move Description]"
+          }
+        ]
+      },
+      {
+        "Name": "Yeti",
+        "Health": 250,
+        "Weakness": 2,
+        "Resistance": 3,
+        "Description": "[Insert Creature Description]",
+        "SkillSet": [
+          {
+            "Boost": 0,
+            "Shield": 0,
+            "Heal": 0,
+            "Name": "Bash",
+            "Element": 1,
+            "Power": 50,
+            "Description": "[Insert Move Description]"
+          },
+          {
+            "Boost": 0,
+            "Shield": 0,
+            "Heal": 0,
+            "Name": "Snowfall",
+            "Element": 3,
+            "Power": 60,
+            "Description": "[Insert Move Description]"
+          }
+        ]
+      },
+      {
+        "Name": "Imp",
+        "Health": 100,
+        "Weakness": 8,
+        "Resistance": 9,
+        "Description": "[Insert Creature Description]",
+        "SkillSet": [
+          {
+            "Boost": 10,
+            "Shield": 0,
+            "Heal": 0,
+            "Name": "Claws",
+            "Element": 1,
+            "Power": 50,
+            "Description": "[Insert Skill Description]"
+          }
+        ]
+      }
+    ]
+  },
+  "Player": {
+    "Team": [
+      "Kobold",
+      "Golem",
+      "Yeti"
+    ]
+  },
+  "StartMessage": "Welcome to this Creature Battle Simulator!",
+  "ExitMessage": "Thank you for playing!"
+}

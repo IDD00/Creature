@@ -31,9 +31,11 @@ namespace Creature.Data
 
         public World World { get; private set; }
         public Player Player { get; private set; }
+        [JsonIgnore]
         public Dictionary<string, Command> Commands { get; private set; }
-
+        [JsonIgnore]
         public bool IsGameRunning { get; set; }
+        [JsonIgnore]
         public bool IsInBattle { get; set; }
 
         public string StartMessage { get; set; }

@@ -172,6 +172,7 @@ namespace Creature.Builder
             {
                 Data.Creature creature = ViewModel.Creatures[creaturesListBox.SelectedIndex];
                 ViewModel.PlayerTeam.Add(new Data.Creature(creature.Name, creature.MaxHealth, creature.Weakness, creature.Resistance, creature.Description));
+                ViewModel.Game.Player.TeamNames.Add(creature.Name);
             }
         }
 
@@ -179,6 +180,7 @@ namespace Creature.Builder
         {
             if (MessageBox.Show("Remove selected Creature from Player Team?", "Creature Builder", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                ViewModel.Game.Player.TeamNames.RemoveAt(playerTeamListBox.SelectedIndex);
                 ViewModel.PlayerTeam.Remove((Data.Creature)playerTeamListBox.SelectedItem);
                 playerTeamListBox.SelectedItem = ViewModel.PlayerTeam.FirstOrDefault();
             }
